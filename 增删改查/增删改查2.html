@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* 1变色 */
+        li:nth-of-type(2n){
+            background-color: red;
+        }
+        li:nth-of-type(2n+1){
+            background-color: green;
+        }
+    
+    
+    </style>
+</head>
+<body>
+        <ul >
+                <li>fsf</li>
+                <li>gdfg</li>
+                <li>dasd</li>
+                <li>adas</li>
+                <li>fgfdg</li>
+            </ul>
+                <script>
+            // 2点击li,增加一个span
+                    var ul=document.querySelector("ul");
+                    ul.addEventListener("click",function(e){
+                        var span=document.createElement("span");
+                        span.innerText="发生的发生";
+                        e.target.appendChild(span);
+                        // e.target.innerText="定时撒";
+                        e.target.innerHTML+="55555555555";
+                        // setTimeout(function(){
+                        //     e.target.parentNode.removeChild(e.target);
+                        // },2000)
+
+                    })
+                  
+            
+            
+            
+            </script>
+</body>
+</html>

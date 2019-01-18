@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* .box2{
+            transform-style:preserve-3d;
+        } */
+        .box1{
+            position: relative;
+            left: 0;
+            top: 0;
+            width: 200px;
+            height: 260px;
+            background-color: red;
+            margin: 100px auto;
+            transform-style:preserve-3d;
+            /* transform: rotate3d(0,1,0,70deg); */
+            /* perspective: 1000px; */
+            transition: all 2s;
+            /* border-radius: 50%; */
+           
+        }
+        .box1::before
+        
+        {
+            content: "1分钱专享百度红包";
+            /* background-color: green; */
+            position: absolute;
+            left: 0;
+            margin: 0;
+           
+            width: 100%;
+            height: 100%;
+            background: radial-gradient( at 82px 105px,  #FFFFFF 0%,#FFFFFF 60%,#77F7F7 60%,#77F7F7);    
+        }
+      
+        .box1::after{
+            content: "黑马等你来报名";
+            position: absolute;
+            left: 0;
+            margin: 0;
+            
+            width: 100%;
+            height: 100%;
+            transform: translate3d(0,0,-5px) rotate3d(0,1,0,180deg);
+            background: radial-gradient( at 82px 105px,  #FFFFFF 0%,#FFFFFF 60%,#77F7F7 60%,#77F7F7);
+        }
+        .box1:hover{
+            transform: rotate3d(0,1,0,180deg);
+        }
+
+    
+    </style>
+</head>
+<body>
+    <div class="box1">
+</div>
+</body>
+</html>

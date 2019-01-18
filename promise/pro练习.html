@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 需求
+    1买菜
+    2洗菜
+    3做饭
+    4吃饭
+    5洗碗 -->
+     
+
+    <script>
+        let flag=1;
+        function step1(resolve,reject){
+            console.log("买菜")
+            if(flag){
+                resolve("不挑食,买好了")
+            }else{
+                reject("没有喜欢吃的,没买,在沟通")
+            }
+            
+        }
+
+        function step2(resolve,reject){
+            console.log("洗菜")
+            if(flag==1){
+                resolve("完成洗菜,有手套")
+                // flag=0;
+            }else{
+                reject("家里没交水费,没洗菜")
+                
+            }
+            
+        }
+
+        function step3(resolve,reject){
+            console.log("做饭")
+            if(flag==1){
+                resolve("做饭完成")
+            }else{
+                reject("没完成做饭")
+                // flag=0;
+            }
+            
+        }
+
+        function step4(resolve,reject){
+            console.log("吃饭")
+            if(flag==1){
+                resolve("吃饭完成")
+            }else{
+                reject("没完成吃饭")
+                // flag=0;
+            }
+            
+        }
+    
+    new Promise(step1).then(function(val1){
+        console.log(val1);
+        return new Promise(step2)
+
+    }).then(val2=>{
+        console.log(val2);
+        return new Promise(step3)
+    }).then(val3=>{
+        console.log(val3);
+        return new Promise(step4)
+    }).then(val4=>{
+        console.log(val4);
+    })
+
+
+    // new Promise(step1).then(function(val1){
+    //     console.log(val1);
+    //     return new Promise(step2)
+
+    // }).then(val2=>{
+    //     console.log(val2);
+    //     return new Promise(step3)
+    // }),val2=>{
+    //     console.log(val2);
+    //     return new Promise(step3)
+    // }.then(val3=>{
+    //     console.log(val3);
+    //     return new Promise(step4)
+    // }).then(val4=>{
+    //     console.log(val4);
+    // })
+    
+    
+    
+    </script>
+
+
+</body>
+</html>

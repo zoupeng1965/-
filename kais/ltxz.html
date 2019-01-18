@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 150px;
+            height: 180px;
+            margin: 100px auto;
+            position: relative;
+            transform-style:preserve-3d;
+            transform: rotate3d(0,1,0,17deg);
+            perspective-origin:58px -15px;
+            perspective: 1000px;
+            transition: all 2s;
+        }
+        .box img{
+            width: 150px;
+            height: 180px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            transition: all 4s;
+        }
+        .box div:nth-of-type(2){
+            transform: translate3d(0,0,200px);
+        }
+        .box div:nth-of-type(3){
+            transform: translate3d(0,0,-200px);
+        }
+        .box div:nth-of-type(4){
+            transform:translate3d(-200px,0px,96px) rotate3d(0,1,0,120deg);
+        }
+        .box div:nth-of-type(5){
+            transform:translate3d(200px,0px,72px) rotate3d(0,1,0,32deg);
+        }
+        .box div:nth-of-type(6){
+            transform:translate3d(-200px,0px,-72px) rotate3d(0,1,0,45deg);
+        }
+        .box div:nth-of-type(7){
+            transform:translate3d(200px,0px,-90px) rotate3d(0,1,0,120deg);
+        }
+
+        .box:hover{
+            transform: rotate3d(0,1,0,500deg);
+        }
+      
+    </style>
+
+</head>
+<body>
+    <div class="box">
+        <div>
+            <img src="./images/dog2.jpg" alt="">
+        </div>
+        <div>
+                <img src="./images/dog.gif" alt="">
+            </div>
+            <div>
+                    <img src="./images/dog.gif" alt="">
+                </div>
+                <div>
+                        <img src="./images/dog.gif" alt="">
+                    </div>
+                    <div>
+                            <img src="./images/dog.gif" alt="">
+                        </div>
+                        <div>
+                                <img src="./images/dog.gif" alt="">
+                            </div>
+                            <div>
+                                    <img src="./images/dog.gif" alt="">
+                                </div>
+                               
+    </div>
+</body>
+</html>

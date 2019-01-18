@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul class="ul">
+        <li>fsf</li>
+        <li>gdfg</li>
+        <li>dasd</li>
+        <li>adas</li>
+        <li>fgfdg</li>
+    </ul>
+    <script>
+        // 查
+        var mv = document.querySelector(".ul");
+        var lis=mv.getElementsByTagName("li");
+        var lis = mv.querySelectorAll("li");
+        // console.log(lis)
+        for (var i = 0; i < lis.length; i++) {
+            if (i % 2 == 0) {
+                lis[i].style.backgroundColor = "red";
+            } else {
+                lis[i].style.backgroundColor = "green";
+            }
+            //    this的指向,循环会先执行,所以要用this
+                // lis[i].onclick = function () {
+                //     var span = document.createElement("span");
+                //     span.innerText = "的防守打法发生的55法";
+                //     this.appendChild(span);
+                // }
+            
+
+            // 自调用函数,可以保存i的值
+            // function fn(i) {
+            //     lis[i].onclick = function () {
+            //         var span = document.createElement("span");
+            //         span.innerText = "的防守打法发生的55法";
+            //         lis[i].appendChild(span);
+            //     }
+            // }
+            // fn(i);
+        }
+    //    第二  事件委托
+        // mv.addEventListener("click",function(e){
+        //     // console.log(e.target);
+        //     // 增加
+        //     var span=document.createElement("span");
+        //     // 改
+        //     span.innerText="的防守打法的防守打法";
+        //     e.target.appendChild(span);
+        //     // 删除
+        //     e.target.parentNode.removeChild(e.target);
+        //     // this.removeChild(e.target);
+           
+        // })
+
+        mv.addEventListener("click",function(e){
+            setTimeout(function(){
+                e.target.parentNode.removeChild(e.target);  
+            },2000)
+        })
+    
+    </script>
+</body>
+
+</html>

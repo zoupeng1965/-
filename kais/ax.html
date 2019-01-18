@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        //爱心动画
+        .d1 .d12 .kg{
+            height: 205px;
+        }
+        .d1{
+            width: 300px;
+            height: 300px;
+            background-color: #FFC3C3;
+            margin: 90px auto;
+            overflow: hidden;
+            
+        }
+        .d12{
+            width: 200px;
+            height: 200px;
+            position: relative;
+            margin: 60px auto;
+            /* background-color: green; */
+            
+        }
+        .d2,.d3{
+            width: 100px;
+            height: 165px;
+            background-color: #D5093C;
+            position: absolute;
+            left: 50%;
+            top: 0;
+            border-radius: 50px 50px 0 0;
+            transform: rotate(-45deg);
+            transform-origin: 0 100%;
+            transition: all 1s;
+        }
+        
+        .d3{
+            left: 0;
+            transform: rotate(45deg);
+            transform-origin: 100% 100%;
+        }
+
+      
+       .d12:hover .d2{
+           height: 205px;
+       }
+
+       
+       .d12:hover .d3{
+           height: 205px;
+       }
+    
+    </style>
+</head>
+<body>
+    <div class="d1">
+        <div class="d12">
+            <div class="d2"></div>
+            <div class="d3"></div>
+            
+        </div>
+
+       
+    </div>
+
+    <script src="./images/jquery-1.12.2.min.js"></script>
+    <script>
+        var dsq=setInterval(function(){
+            $(".d3").toggleClass("kg");
+            $(".d2").toggleClass("kg");
+
+        },300)
+    
+    </script>
+</body>
+</html>

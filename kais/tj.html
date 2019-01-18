@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            border: 2px solid #000;
+            margin: 50px auto;
+            background:linear-gradient(to right,#FFFFFF 0%,#FFFFFF 50%,#1E1E1E 50%,#1E1E1E);
+            position: relative;
+        }
+        .box::after{
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 0;
+            transform: translate(-50%,0);
+            width: 150px;
+            height: 150px;
+            background-color: #1E1E1E;
+            border-radius: 50%;
+            background: radial-gradient(#FFFFFF 0%,#FFFFFF 20%,#1E1E1E 20%,#1E1E1E);    
+        }
+        .box::before{
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 0;
+            transform: translate(-50%,100%);
+            width: 150px;
+            height: 150px;
+            background-color: #FFFFFF;
+            border-radius: 50%;
+            background: radial-gradient(#1E1E1E 0%,#1E1E1E 20%,#FFFFFF  20%,#FFFFFF );
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<button id="btn">点我</button>
+	<div id="output"></div>
+	<script>
+		var btn2=document.getElementById("btn");
+		btn2.onclick=function(){
+			fetch("data.json",{
+				headers:{
+					"Content-Type":"appLication/json"
+				},
+			}).then(function(res){
+				return res.json();
+			}).then(function(data){
+				console.log(data)
+				var str="";
+				data.forEach(item => {
+					// str+=`<p>${item.name}</p>`
+					str+="<p>"+item.name+"</p>"
+				});
+				document.getElementById("output").innerHTML=str;
+			}).catch(function(err){
+				console.log(err)
+			})
+		}
+	
+
+
+	// get请求
+
+		// fetch("/user/queryUser?page=1&pageSize=5",{
+
+		// }).then(res => res.json()).then(data=>{
+		// 	console.log(data);
+		// 	var html=template("userTpl",data)
+  //   //         // console.log(html)
+  //           $("#userBox").html(html)
+		// }).catch(err=>{
+		// 	console.log(err)
+		// })
+
+
+
+		//post
+
+			// fetch("/employee/employeeLogin",{
+			// 	method:"post",
+			// 	body:JSON.stringify(data),
+			// 	// body:data,
+			// 	headers:{
+			// 		"Content-Type":"appLication/json"
+			// 	},
+			// }).then(res=>res.json()).then(data=>{
+			// 	if(data.success){
+			// 		console.log(5555555555555555555);
+			// 		location.href = 'user.html';
+			// 	}
+			// }).then(err=>{
+			// 	console.log(err)
+			// })
+	
+	</script>
+</body>
+</html>

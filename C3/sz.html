@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+          * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        ul {
+            width: 120px;
+            height: 120px;
+            background-color: #000;
+            float: left;
+            margin-left: 10px;
+        }
+
+        li {
+            width: 30px;
+            height: 30px;
+            background-color: red;
+            border-radius: 50%;
+        }
+
+        ul:nth-child(1) {
+            width: 120px;
+            height: 120px;
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform: translate3d(0,0,60px);
+
+        }
+
+
+
+        ul:nth-child(2) {
+            width: 120px;
+            height: 120px;
+            background-color: #000;
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+            transform: translate3d(0,0,-60px);
+        }
+
+        ul:nth-child(2) li {
+            margin: 15px;
+        }
+
+        ul:nth-child(3) {
+            width: 120px;
+            height: 120px;
+            background-color: #000;
+            display: flex;
+            transform: translate3d(-60px,0,0) rotate3d(0,1,0,90deg);  
+        }
+        ul:nth-child(3) li:nth-child(2){
+            align-self: center;
+        }
+        ul:nth-child(3) li:nth-child(3){
+            align-self: flex-end;
+        }
+
+          ul:nth-child(4) {
+            display: flex;  
+            flex-flow: wrap;
+            transform: translate3d(60px,0,0) rotate3d(0,1,0,90deg);  
+        }
+        ul:nth-child(4) li{
+           margin: 15px 7px 7px 8px;
+        }
+
+           ul:nth-child(5) {
+            display: flex;  
+            flex-flow: wrap;
+            /* transform: translate3d(0,45px,0) rotate3d(0,1,1,90deg); */
+             transform: translate3d(0,60px,0) rotate3d(1,0,0,90deg);
+        }
+        ul:nth-child(5) li{
+            margin: 7px;
+        }
+        ul:nth-child(5) li:nth-child(3){
+            margin: 3px 10px 0px 29px;
+        }
+
+          ul:nth-child(6) {
+            display: flex;  
+            flex-flow: wrap;
+            transform: translate3d(0,-60px,0) rotate3d(1,0,0,90deg);
+            
+        }
+        ul:nth-child(6) li{
+            margin-left: 10px;
+            margin-top: 5px;
+        }
+
+        div{
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin: 100px auto;
+            transform-style: preserve-3d;
+            transform: rotate3d(0,1,1,229deg);
+            animation: sj 2s linear infinite  paused;
+            
+        }
+        div ul{
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        span{
+            display: block;
+            width: 80px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            background-color: red;
+            margin-top: 10px;
+            margin-left: 20px;
+            cursor: pointer;
+        }
+
+        
+
+        @keyframes sj{
+            0%{
+                transform: rotate3d(0,1,1,200deg) rotate3d(1,1,0,200deg) ;
+            }
+
+            100%{
+                transform: rotate3d(0,1,1,2000deg) rotate3d(1,1,0,2000deg) ;
+            }
+        }
+
+    
+    </style>
+</head>
+<body>
+        <div id="box">
+                <ul>
+                    <li></li>
+                </ul>
+                <ul>
+                    <li></li>
+                    <li></li>
+                </ul>
+                <ul>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+        
+                    <ul>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+        
+                        <ul>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                            </ul>
+                            <ul>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                </ul>
+                </div>
+
+                <span id="s1">开始</span>
+                <span id="s2">结束</span>   
+
+
+        <script>
+            var s1=document.getElementById("s1");
+            var s2=document.getElementById("s2");
+            var box=document.getElementById("box")
+                s1.onclick=function(){
+                    box.style.animation=" sj 2s linear infinite  running";
+                }
+                s2.onclick=function(){
+                    box.style.animation=" sj 2s linear infinite  paused";
+                }
+        
+        </script>
+        
+</body>
+</html>

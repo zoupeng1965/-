@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            width: 300px;
+            height: 500px;
+            background-color: red;
+        }
+    
+    
+        </style>
+</head>
+<body>
+    <form action="">
+        <input type="text" id="input">
+        <input type="button" value="搜索">
+    </form>
+    <div id="box"></div>
+    <script type="text/template" id="tp">
+        {{each lis as value index}}
+            <li>{{value}}</li>
+        {{/each}}
+    </script>
+    <script src="./jquery.min.js"></script>
+    <script src="./template.js"></script>
+    <script>
+        $(function(){
+            $("#input").keyup(function(){
+                var con= $("#input").val();
+                // console.log(con);
+                $.ajax({
+                    url:'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su',
+                    type:"get",
+                    dataType:"jsonp",
+                    jsonp:"cb",
+                    data:{
+                        "wd":con
+                    },
+                    // 为什么data数据名称不能改
+                    success:function(data){
+                        // console.log(data);
+                        var html=template("tp",{lis:data.s});
+                        // console.log(html);
+                            $("#box").html(html);
+                    }
+
+                })
+
+            })
+        })
+    
+    
+    </script>
+</body>
+</html>

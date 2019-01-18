@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 260px;
+            height: 260px;
+            border: 10px solid #000;
+            margin: 100px auto;
+            border-radius: 50%;
+            position: relative;
+        }
+        .box::after{
+            content: "";
+            position: absolute;
+            width: 75%;
+            height: 75%;
+            border-radius: 50%;
+            background-color: #fff;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+
+        }
+        .box::before{
+            content: "";
+            position: absolute;
+            width: 10%;
+            height: 10%;
+            border-radius: 50%;
+            background-color: #000;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            z-index: 4;
+        }
+        .box div{
+            width: 10px;
+            height: 260px;
+            position: absolute;
+            background-color: #000;
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%);
+        }
+        .box div:nth-of-type(1){
+            transform: translateX(-50%) rotate(30deg);
+        }
+        .box div:nth-of-type(2){
+            transform: translateX(-50%) rotate(60deg);
+        }
+        .box div:nth-of-type(3){
+            transform: translateX(-50%) rotate(90deg);
+        }
+        .box div:nth-of-type(4){
+            transform: translateX(-50%) rotate(-30deg);
+        }
+        .box div:nth-of-type(5){
+            transform: translateX(-50%) rotate(-60deg);
+        }
+
+        .box span{
+            
+            position: absolute;
+            background-color: yellow;
+            left: 50%;
+            top: 50%;
+            width: 15px;
+            height: 60px;
+            z-index: 3;
+            transform: translate(-50%,-100%);
+        }
+        .box .shi{
+            transform-origin: center 100%;
+            animation: sj 43200s   infinite linear ;
+        }
+        .box .fen{
+            width: 7px;
+            height: 75px;
+            background-color: pink;
+            animation: sj 3600s   infinite linear ;
+            transform-origin: center 100%;
+            
+        }
+        .box .miao{
+            width: 4px;
+            height: 85px;
+            background-color: #000;
+            
+            animation: sj 60s   infinite steps(60) ;
+            transform-origin: center 100%;
+        }
+        @keyframes sj{
+            0%{
+                transform: translate(-50%,-100%) rotate(0deg);
+            }
+            100%{
+                transform: translate(-50%,-100%) rotate(360deg);
+            }
+        }
+
+    
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div ></div>
+        <div ></div>
+        <div ></div>
+        <div ></div>
+        <div></div>
+        <div></div>
+        
+        <span class="miao"></span>
+        <span class="fen"></span>
+        <span class="shi"></span>
+    </div>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+
+        .box {
+
+            max-width: 640px;
+            min-width: 320px;
+            width: 100%;
+            overflow: auto;
+            height: 600px;
+
+        }
+
+        .db {
+            width: 100%;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            background-color: red;
+        }
+
+        .ul {
+            width: 100%;
+            margin: 0 auto;
+            /* height: 500px; */
+            border: 1px solid #000;
+        }
+
+        .ul li {
+            width: 100%;
+            margin-top: 5px;
+            border: 1px solid #000;
+
+        }
+
+        .ul li img {
+            width: 26%;
+        }
+
+        .ol {
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .ol li {
+            box-sizing: border-box;
+            float: left;
+            width: 25%;
+            border-right: 1px solid #000;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            background-color: green;
+
+        }
+
+        #ddimg {
+            width: 10%;
+            margin-left: 50%;
+            transform: translateX(-50%);
+            display: none;
+        }
+
+        @keyframes dh1 {
+            0% {
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- <img src="http://www.jq22.com/img/cs/500x500a.png" alt=""> -->
+
+    <div class="box" id="box1">
+        <div class="db">首页</div>
+        <ul class="ul " id="ulbox">
+
+        </ul>
+        <img src="./loading.gif" alt="" id="ddimg">
+        <ol class="ol">
+            <li>首页</li>
+            <li>桑蚕</li>
+            <li>其他</li>
+            <li>我的</li>
+        </ol>
+    </div>
+
+
+    <script src="./jquery.min.js"></script>
+    <script>
+
+        window.onload = function () {
+
+            var tag=false;
+            fn1();
+
+
+            var box1 = document.querySelector("#box1")
+            console.log(box1);
+            box1.onscroll = function () {
+                if ($("#box1").scrollTop() + $("#box1").height() + 50 > $("#box1")[0].scrollHeight) {
+                    // console.log($("#box1").scrollTop(), ":", $("#box1").height(), ":", $("#box1")[0].scrollHeight);
+                    $("#ddimg").css("display", "block");
+                    $("#ddimg").css("animation", "dh1 2.5s");
+                    // }
+                    if(tag){
+                        tag=false;
+                        setTimeout(function () {
+                        fn1();
+                    }, 3000)
+                    }
+                    
+                }
+            }
+
+                // -----------------------------------
+                function fn1() {
+                    var ulbox = document.querySelector("#ulbox");
+                    for (var i = 0; i < 10; i++) {
+                        var li = document.createElement("li");
+                        var img = document.createElement("img");
+                        var span = document.createElement("span");
+                        span.innerHTML = "这是第" + (i + 1) + "个图片,请珍惜";
+                        // var span=document.
+                        img.src = "http://www.jq22.com/img/cs/500x500a.png";
+                        li.appendChild(img);
+                        li.appendChild(span);
+                        ulbox.appendChild(li);
+                        tag=true;
+                    }
+                }
+
+
+            
+        }
+    </script>
+</body>
+
+</html>
