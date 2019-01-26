@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="../vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+       <p v-text="msg"></p>
+       <button @click="dql">动起来</button>
+       <button @click="bd" >不动</button>
+
+
+        </div>
+        <script>
+            var vm = new Vue({
+                el: '#app',
+                data: {
+                    msg:"是范德萨发生大幅度发的方式第三方第三方第三方二十多分发生",
+                    dsq:"",
+                },
+                methods: {
+                   dql(){
+                       clearInterval(this.msg);
+                       this.dsq=setInterval(()=>{
+
+                        let start=this.msg.substr(0,1);
+                       let end=this.msg.substr(1);
+                       this.msg=end+start;
+
+
+                       },40)
+                     
+                   } ,
+                   bd(){
+                    clearInterval(this.dsq);
+                    this.dsq="";
+                   }
+                },
+            })
+        </script>
+    </body>
+</html>

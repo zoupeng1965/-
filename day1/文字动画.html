@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <div id="app">
+    <p v-text="msg"></p>
+    <button @click="qidong">点我</button>
+    <button @click="tz">不动</button>
+</div>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                msg:"别浪了,在玩一个的范德萨范德萨发",
+                dsq:""
+            },
+            methods:{
+                qidong(){
+                    clearInterval(this.dsq);
+                  this.dsq= setInterval(()=>{
+                        let end=this.msg.substring(0,1)
+                        let start=this.msg.substring(1)
+                        this.msg=start+end
+                    },400)
+                },
+                tz(){
+                    clearInterval(this.dsq); 
+                    this.dsq="";
+                } 
+            }
+        })
+    
+    </script>
+</body>
+</html>

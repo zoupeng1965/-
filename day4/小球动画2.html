@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="./vue.js"></script>
+    <style>
+        div {
+            background-color: pink;
+            width: 20px;
+            height: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <button @click="flag=!flag">点我</button>
+        <transition v-on:before-enter="beforeEnter" v-on:enter="enter" v-on:after-enter="afterEnter">
+            <!-- //自定义动画名称加name -->
+            <div v-show="flag"></div>
+        </transition>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                flag: false
+            },
+            methods: {
+                beforeEnter(el) {
+              el.style.transform="translate(0, 0)"    
+            },
+            enter(el,done) {
+                el.offsetWidth;
+                el.style.transform="translate(200px, 450px)" ;
+                el.style.transition="all 1s" ; 
+                done()
+            },
+            afterEnter(el) {
+                this.flag=!this.flag
+            },
+            },
+           
+        })
+    </script>
+</body>
+
+</html>

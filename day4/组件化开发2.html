@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="./vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <com></com>
+            <comm></comm>
+        </div>
+
+        <template id="tep">
+            <div>
+                <h3>啥的非官方的电饭锅电饭锅</h3>
+            </div>
+        </template>
+
+        <template id="tep2">
+            <div>
+                <h3>2222252555555</h3>
+            </div>
+        </template>
+
+        <script>
+            Vue.component("com",{
+                template:"#tep"
+            })
+            var vm = new Vue({
+                el: '#app',
+                data: {
+
+                },
+                components:{
+                    comm:{
+                      template:"#tep2"
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>

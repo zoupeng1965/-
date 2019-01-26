@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="./vue2.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <input v-model="msg1" type="text">
+            <select v-model="msg4">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+            </select>
+            <input v-model="msg2" type="text">
+            <button @click="add">=</button>
+            <input :value="msg3" disabled type="text">
+        </div>
+        <script>
+            var vm = new Vue({
+                el: '#app',
+                data: {
+                    msg1:0,
+                    msg2:0,
+                    msg3:0,
+                    msg4:"+"
+                },
+                methods: {
+                    add(){
+                        switch(this.msg4){
+                            case "+":
+                                this.msg3=this.msg1*1+this.msg2*1
+                            break;
+
+                            case "-":
+                            this.msg3=this.msg1-this.msg2
+                            break;
+
+                            case "*":
+                            this.msg3=this.msg1*this.msg2
+                            break;
+
+                            case "/":
+                            this.msg3=this.msg1/this.msg2
+                            break;
+                        }
+                    }
+                },
+            })
+        </script>
+    </body>
+</html>

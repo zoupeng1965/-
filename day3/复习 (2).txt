@@ -1,0 +1,29 @@
+1 过滤器基本使用
+  a全局过滤器
+	1参数1:过滤器名称,参数2:回调函数
+        2回调函数中第一个参数是管道左边的数据,第二个参数是过滤器调用时传入的参数
+	   Vue.filter('msgFilter', function(data, str) {
+
+      return data.replace('Helloworld', str)
+
+    })
+        3在差值表达式或v-bind可以使用,v-text其他指令不能使用
+        4过滤器可以串联使用
+       <p>{{ msg | msgFilter('你好世界') | test }}</p>
+
+  b私有过滤器
+        1不同私有过滤器,私有过滤器只能在当前实例内部使用,定义方式在当前vm实例的配置对象加入filters的节点,与data等节点同级
+
+
+事件处理函数8个
+    beforCreate:实例完全创建之前, 此时data和methods等数据都没有初始化, 不能使用;
+    create:实例已经创建完毕了, 此时data和methods等数据都可以使用了, 实例对象也可以访问
+    beforMount: 模板在内存中编译完成了, 但是还未渲染到页面上,此时查询不到dom
+    mounted: 编译好的模板完全渲染到页面, 用户最终看到的样子, 此时DOM元素也是最新的, 如果想操作DOM元素, 最好在这个生命周期函数中进行
+
+   beforeUpdate: 当data中数据改变时会触发, 此时页面上的数据并没有重新渲染, 只是data中的数据更新了
+   updated: 当data中数据改变后, 并将页面上的数据也更新完成后会触发, 此时data中的数据和页面上的数据是同步的
+	
+   beforeDestroy: 当实例进入销毁阶段时执行的钩子函数, 此时Vue实例中的data/methods/filters/directives等都还可以使用
+
+   destroyed: 实例上的所有成员已经完全销毁, 无法使用了

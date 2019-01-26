@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="./vue.js"></script>
+        <style>
+            .my-enter
+            {
+                transform: translateY(100px);
+                opacity:0
+            }
+            .my-leave-to{
+                transform: translateX(100px);
+                opacity:0
+            }
+            .my-enter-active,
+            .my-leave-active{
+                transition: all 1.5s linear;
+            }
+        
+        
+        
+        </style>
+    </head>
+    <body>
+        <div id="app">
+                <button @click="flag=!flag">点我</button>
+            <transition name="my">
+                <!-- //自定义动画名称加name -->
+                    <div v-if="flag">{{msg}}</div>
+            </transition>
+            
+        </div>
+        <script>
+            var vm = new Vue({
+                el: '#app',
+                data: {
+                    msg:"第三方的士大夫",
+                    flag:false
+
+                }
+            })
+        </script>
+    </body>
+</html>

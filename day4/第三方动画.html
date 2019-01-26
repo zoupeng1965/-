@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="./vue.js"></script>
+        <link rel="stylesheet" href="./animate.css">
+    </head>
+    <body>
+        <div id="app">
+            <button @click="flag=!flag">点我</button>
+            <transition
+            name="custom-classes-transition"
+            enter-active-class="animated jello"
+            leave-active-class="animated bounceOutRight"
+            :duration="{ enter: 200, leave: 400 }"
+            >
+                    <h2 v-if="flag">{{msg}}</h2>
+            </transition>
+            
+           
+        </div>
+        <script>
+            var vm = new Vue({
+                el: '#app',
+                data: {
+                    msg:"对方水电费是",
+                    flag:false
+                }
+            })
+        </script>
+    </body>
+</html>

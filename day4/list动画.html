@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="./vue.js"></script>
+    <style>
+        li{
+                border: 1px dashed #999;
+      margin: 5px;
+      line-height: 35px;
+      padding-left: 5px;
+      font-size: 12px;
+      width: 100%;
+            }
+            li:hover{
+                background-color: pink;
+                transition: all 0.7s ease;
+            }
+
+            .v-enter,
+            .v-leave-to{
+                transform: translateY(80px);
+                /* color:rgba(255, 255, 255, 0); */
+                opacity: 0;
+            }
+            /* 让过渡更平稳 */
+            .v-move{
+                transition: all 1.2s ease; 
+            }
+
+            .v-enter-active,
+            .v-leave-active{
+                transition: all 1.2s ease;
+            }
+            /* 脱离文档流 */
+            .v-leave-active{
+                position: absolute;
+            }
+
+            
+        
+        </style>
+</head>
+
+<body>
+    <div id="app">
+
+        <div>
+            <label>
+                Id:
+                <input type="text" v-model="id">
+            </label>
+
+            <label>
+                Name:
+                <input type="text" v-model="name">
+            </label>
+
+            <input type="button" value="添加" @click="add">
+        </div>
+
+
+
+        <transition-group appear tag="ul">
+            <li v-for="(item,index) of list" :key="item.id" @click="del(index)">
+                {{item.id}}====={{item.name}}
+            </li>
+        </transition-group>
+
+
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                list: [
+                    { id: "1", name: "胜多负少的" },
+                    { id: "2", name: "风高放火" },
+                ],
+                id: "",
+                name: "",
+
+            },
+            methods: {
+                add() {
+                    this.list.push({ id: this.id, name: this.name })
+                    this.id = this.name = ""
+                },
+                del(index) {
+                    this.list.splice(index, 1)
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="./vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+           <com></com>
+           <hr>
+           <div>---------------</div>
+           <com></com>
+           <comm></comm>
+        </div>
+
+
+        <template id="temp">
+            <div>
+                <h2>范德萨范德萨</h2>
+                <p>发生的范德萨</p>
+            </div>
+        </template>
+
+        <template id="temp2">
+            <div>
+                <h4>25255555</h4>
+            </div>
+        </template>
+        <script>
+
+            // 全局组件
+            // Vue.component("com",{
+            //     template:"<h2>是非得失</h2>"
+            // })
+            Vue.component("com",{
+                template:"#temp"
+            })
+            var vm = new Vue({
+                el: '#app',
+                data: {
+
+                },
+                // 私有组件
+                components:{
+                    comm:{
+                       template:"#temp2"
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>

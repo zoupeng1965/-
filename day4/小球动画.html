@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="./vue.js"></script>
+        <style>
+            div{
+                width:10px;
+                height: 10px;
+                background-color:red;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app">
+                <button @click="flag=!flag">到碗里来</button>
+                <transition
+                v-on:before-enter="beforeEnter"
+                v-on:enter="enter"
+                v-on:after-enter="afterEnter">
+                        <div v-show="flag"></div>
+                </transition>
+            
+            
+        </div>
+        <script>
+            var vm = new Vue({
+                el: '#app',
+                data: {
+                    flag:false
+                },
+                methods: {
+                    beforeEnter(el){
+                        console.log(11)
+                        el.style.transform="translate(0,0)";
+                        
+                    },
+                    enter(el,done){
+                        el.offsetWidth//强制动画刷新
+                        console.log(22)
+                        el.style.transition="all 0.3s "
+                        el.style.transform="translate(200px,200px)";
+                        done()
+                    },
+                    afterEnter(el){
+                        console.log(33)
+                        this.flag=!this.flag
+                        // el.style.display="none"
+                    }
+                },
+            })
+        </script>
+    </body>
+</html>

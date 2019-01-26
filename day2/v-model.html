@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="./vue2.js"></script>
+    </head>
+    <body>
+        <div id="app">
+
+            <h2>{{msg}}</h2>
+
+            <input  type="text" v-model="msg">
+            <input id="in" type="checkbox" >
+        </div>
+        <script>
+
+            var input=document.getElementById("in")
+        input.onclick=function(){
+            alert(11)
+            console.log(122222)
+        }
+           
+            var vm = new Vue({
+                el: '#app',
+                data: {
+                    msg:"发第三方第三方第三方"
+                }
+            })
+        </script>
+    </body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="./vue.js"></script>
+        <style>
+
+            /* .v-enter,
+            .v-leave-to
+            {
+                opacity: 0;
+                transform: translateX(150px);
+            } */
+            .v-enter
+     {
+      opacity: 0;
+      transform: translateY(150px);
+        
+    }
+    
+    .v-leave-to {
+      opacity: 0;
+      transform: translateX(150px);
+    }
+
+
+
+            /* .v-entar-active,
+            .v-leave-active
+            {
+                transition: all 1.5s ease;
+            } */
+        
+
+            .v-enter-active,
+    .v-leave-active{
+      transition: all 1.5s ease;
+    }
+        
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <input type="button" @click="flag=!flag" value="点我">
+            <transition>
+                    <h3 v-if="flag">发生的发生的发</h3>
+            </transition>
+                    
+           
+         
+        </div>
+        <script>
+            var vm = new Vue({
+                el: '#app',
+                data: {
+                    flag:false
+                },
+                methods: {
+                    
+                },
+            })
+        </script>
+    </body>
+</html>
